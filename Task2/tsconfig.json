@@ -1,0 +1,28 @@
+﻿{
+	//"compileOnSave": true,
+	"compilerOptions": {
+		"target": "es6",
+		"allowSyntheticDefaultImports": true,
+		//"lib": [ "es6", "dom", "es2015" ],
+		"lib": [ "es2015", "es2017", "dom" ],
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"sourceMap": true, 
+		"noImplicitAny": false,
+		"noEmitHelpers": true,
+		"importHelpers": true,
+		"noEmitOnError": true,
+		"removeComments": false,
+		"rootDir": "./Scripts/"
+	},
+	"awesomeTypescriptLoaderOptions": {
+		"useTranspileModule": true,
+		"transpileOnly": true
+	},
+	"exclude": [
+		"node_modules",
+		"_wwwroot"
+	]
+}

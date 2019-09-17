@@ -1,0 +1,34 @@
+﻿@model Task2.Models.ViewModels.ProductsViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+@*<input type="hidden" class="jCurrentUserId" value="@Model.CurrentUserId"/>*@
+<button class="btn btn-success">@Html.ActionLink("Go to Categories", "Index", "Categories", new { userId = Model.CurrentUserId }, new { Style = "color:black" })</button><br/>
+<button class="btn btn-success">@Html.ActionLink("Go to Orders", "ForUser", "Orders", new { userId = Model.CurrentUserId }, new { Style = "color:black" })</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>
+                        <button class="btn btn-success">@Html.ActionLink("Add to cart", "CreateOrder", "Cart", new { userId = Model.CurrentUserId, productId = product.Id }, new { Style = "color:black" })</button>
+                    </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button class="btn btn-success">@Html.ActionLink("Go to cart", "Index", "Cart", new { userId = Model.CurrentUserId}, new { Style = "color:black" })</button>
+
+

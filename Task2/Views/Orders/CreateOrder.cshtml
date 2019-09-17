@@ -1,0 +1,16 @@
+﻿@model Data.Entities.Order
+@{
+    ViewData["Title"] = "CreateOrder";
+}
+
+@section Scripts{
+    <script src="/dist/createOrder.bundle.js"></script>
+}
+
+<input type="hidden" class="jOrderId" value="@Model.Id" />
+<h1>CreateOrder</h1>
+
+<h3>Product name: @Model.Product.Name</h3>
+
+<button class="btn btn-success jConfirmOrder">Are you sure?</button>
+

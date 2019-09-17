@@ -1,0 +1,31 @@
+﻿@model Task2.Models.ViewModels.ListOfOrderForUserViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Orders</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Product name</th>
+            <th>Status</th>
+            <th>Date created</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var order in Model.Orders)
+        {
+        <tr>
+            <td>@order.Id</td>
+            <td>@order.Product.Name</td>
+            <td>@order.OrderStatus.ToString()</td>
+            <td>@order.DateCreated</td>
+            <td><button class="btn btn-info">@Html.ActionLink("Confirm order", "ConfirmOrderByAdmin", "Orders", new { orderId = order.Id })</button></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+

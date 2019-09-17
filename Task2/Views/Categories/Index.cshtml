@@ -1,0 +1,33 @@
+﻿@model Task2.Models.ViewModels.CategoriesViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+@*<input type="hidden" class="jCurrentUserId" value="@Model.CurrentUserId"/>*@
+    <button class="btn btn-success">@Html.ActionLink("Go to Orders", "ForUser", "Orders", new { userId = Model.CurrentUserId }, new { Style = "color:black" })</button>
+<h1>Categories</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model.Categories)
+        {
+            <tr>
+                <td>@category.Id</td>
+                <td>@category.Name</td>
+                <td>
+                    <button class="btn btn-success">@Html.ActionLink("Show products", "Index", "Products", new { userId = Model.CurrentUserId, categoryId = category.Id }, new { Style = "color:black" })</button>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button class="btn btn-success">@Html.ActionLink("Go to cart", "Index", "Cart", new { userId = Model.CurrentUserId }, new { Style = "color:black" })</button>
+
+
